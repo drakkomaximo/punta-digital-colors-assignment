@@ -4,10 +4,6 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true
-  },
-  // Deshabilitar server-side features para export estático
-  experimental: {
-    appDir: true
   }
 };
 

@@ -37,6 +37,7 @@ export default function Home() {
             colors={filteredColors} 
             onColorClick={handleColorClick} 
             searchTerm={searchTerm}
+            onSearchChange={handleSearchChange}
           />
 
           <ColorModal selectedColor={selectedColor} onClose={handleModalClose} />

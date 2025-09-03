@@ -197,7 +197,7 @@ npm --version
 git clone https://github.com/datosdeviaje/punta-digital-colors-assignment
 
 # O con SSH (si tienes configurado)
-git clone git@github.com:datosdeviaje/punta-digital-colors-assignment.git
+git clone git@github.com:datosdeviaje/punta-digital-colors-assignment
 
 # Navegar al directorio
 cd punta-digital-colors-assignment
@@ -262,68 +262,6 @@ npm install && npm run dev
 npm run build
 npm run start
 ```
-
-## 🚀 Despliegue en Vercel
-
-### **Despliegue Automático (Recomendado)**
-
-1. **Conectar Repositorio a Vercel**
-   - Acceder a [vercel.com](https://vercel.com)
-   - Hacer clic en "New Project"
-   - Importar desde GitHub/GitLab/Bitbucket
-   - Seleccionar este repositorio
-
-2. **Configuración Automática**
-   Vercel detecta automáticamente que es un proyecto Next.js y configura:
-   - Build Command: `npm run build`
-   - Output Directory: `.next`
-   - Install Command: `npm install`
-
-3. **Variables de Entorno** *(Opcional)*
-   En el dashboard de Vercel → Settings → Environment Variables:
-   ```bash
-   NEXT_PUBLIC_APP_URL=https://tu-dominio.vercel.app
-   ```
-
-4. **Desplegar**
-   - Hacer clic en "Deploy"
-   - ¡Listo! Tu app estará disponible en una URL como: `https://punta-digital-colors.vercel.app`
-
-### **Despliegue Manual con Vercel CLI**
-
-```bash
-# Instalar Vercel CLI globalmente
-npm i -g vercel
-
-# Autenticarse
-vercel login
-
-# Desde el directorio del proyecto
-vercel
-
-# Para producción
-vercel --prod
-```
-
-### **Configuración Avanzada**
-
-El proyecto incluye `vercel.json` con:
-- ✅ Headers de seguridad (XSS, Content-Type, Frame)
-- ✅ Cache optimizado para assets estáticos
-- ✅ Configuración de regiones (iad1 - US East)
-- ✅ Inclusión de archivos públicos en funciones
-
-### **Dominios Personalizados**
-
-1. En Vercel Dashboard → Settings → Domains
-2. Agregar dominio personalizado: `explorador-colores.tudominio.com`
-3. Configurar DNS según las instrucciones
-4. ¡SSL automático incluido!
-
-### **URLs de Ejemplo**
-- **Preview**: `https://punta-digital-colors-git-main-usuario.vercel.app`
-- **Producción**: `https://punta-digital-colors.vercel.app`
-- **Dominio personalizado**: `https://colores.puntadigital.com`
 
 ## 🚀 Posibles Mejoras Futuras
 

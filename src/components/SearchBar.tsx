@@ -6,9 +6,9 @@ interface SearchBarProps {
 export const SearchBar = ({ searchTerm, onSearchChange }: SearchBarProps) => (
   <section className="w-full max-w-lg mb-8" role="search" aria-label="Búsqueda de colores">
     <div className="relative group">
-      <div className="absolute inset-0 bg-gradient-to-r from-palette-dark-orange/20 to-palette-dark-violet/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-500/20 to-purple-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true" />
       
-      <div className="relative bg-primary-white/80 backdrop-blur-md rounded-2xl border border-primary-light-gray/50 shadow-lg hover:shadow-xl transition-all duration-300">
+      <div className="relative bg-white/80 backdrop-blur-md rounded-2xl border border-gray-200/50 shadow-lg hover:shadow-xl transition-all duration-300">
         <label htmlFor="color-search" className="sr-only">
           Buscar colores por nombre
         </label>
@@ -18,7 +18,7 @@ export const SearchBar = ({ searchTerm, onSearchChange }: SearchBarProps) => (
           placeholder="Buscar color (ej: red, blue, green...)"
           value={searchTerm}
           onChange={(e) => onSearchChange(e.target.value)}
-          className="w-full px-6 py-4 text-lg bg-transparent rounded-2xl focus:outline-none focus:ring-2 focus:ring-palette-dodger-blue/50 text-primary-black placeholder-primary-gray font-medium"
+          className="w-full px-6 py-4 text-lg bg-transparent rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500/50 text-gray-900 placeholder-gray-500 font-medium"
           aria-describedby="search-help"
           autoComplete="off"
           spellCheck="false"
@@ -28,7 +28,7 @@ export const SearchBar = ({ searchTerm, onSearchChange }: SearchBarProps) => (
           className="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none"
           aria-hidden="true"
         >
-          <div className="w-10 h-10 bg-gradient-to-r from-palette-dark-orange to-palette-dark-violet rounded-xl flex items-center justify-center shadow-lg">
+          <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg">
             <svg 
               className="w-5 h-5 text-white" 
               fill="none" 
@@ -41,16 +41,15 @@ export const SearchBar = ({ searchTerm, onSearchChange }: SearchBarProps) => (
           </div>
         </div>
 
-        {/* Clear button when there's text */}
         {searchTerm && (
           <button
             onClick={() => onSearchChange('')}
-            className="absolute right-16 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-primary-silver hover:bg-primary-dark-gray-alt rounded-full flex items-center justify-center transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-palette-dodger-blue/50"
+            className="absolute right-16 top-1/2 transform -translate-y-1/2 w-6 h-6 bg-gray-200 hover:bg-gray-300 rounded-full flex items-center justify-center transition-colors duration-200 group focus:outline-none focus:ring-2 focus:ring-blue-500/50"
             aria-label="Limpiar búsqueda"
             type="button"
           >
             <svg 
-              className="w-3 h-3 text-primary-dark-gray" 
+              className="w-3 h-3 text-gray-600" 
               fill="none" 
               stroke="currentColor" 
               viewBox="0 0 24 24"

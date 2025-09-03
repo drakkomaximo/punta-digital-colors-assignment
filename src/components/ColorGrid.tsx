@@ -1,13 +1,37 @@
 import { ColorShade } from '@/types/color';
 import { ColorCard } from './ColorCard';
 
+const getColorValue = (colorName: string): string => {
+  const colorMap: { [key: string]: string } = {
+    red: '#FF0000',
+    blue: '#0000FF',
+    green: '#008000',
+    purple: '#800080',
+    orange: '#FFA500',
+    yellow: '#FFFF00',
+    pink: '#FFC0CB',
+    brown: '#8B4513',
+    gray: '#808080',
+    black: '#000000',
+    white: '#FFFFFF',
+    cyan: '#00FFFF',
+  };
+  return colorMap[colorName] || '#808080';
+};
+
+const getContrastColor = (colorName: string): string => {
+  const lightColors = ['yellow', 'white', 'cyan'];
+  return lightColors.includes(colorName) ? '#000000' : '#FFFFFF';
+};
+
 interface ColorGridProps {
   colors: ColorShade[];
   onColorClick: (color: ColorShade) => void;
   searchTerm: string;
+  onSearchChange: (value: string) => void;
 }
 
-export const ColorGrid = ({ colors, onColorClick, searchTerm }: ColorGridProps) => {
+export const ColorGrid = ({ colors, onColorClick, searchTerm, onSearchChange }: ColorGridProps) => {
   if (colors.length === 0) {
     return (
       <section className="text-center py-16" role="status" aria-live="polite">
@@ -25,13 +49,25 @@ export const ColorGrid = ({ colors, onColorClick, searchTerm }: ColorGridProps) 
           <p className="text-gray-600 font-medium mb-3">Intenta buscar con:</p>
           <div className="flex flex-wrap justify-center gap-2" role="list" aria-label="Sugerencias de búsqueda">
             {['red', 'blue', 'green', 'purple', 'orange', 'yellow', 'pink', 'brown', 'gray', 'black', 'white', 'cyan'].map((color) => (
-              <span 
+              <button 
                 key={color} 
                 className="px-3 py-1 bg-white rounded-full text-sm text-gray-600 border border-gray-200 hover:border-gray-300 transition-colors cursor-pointer"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = getColorValue(color);
+                  e.currentTarget.style.color = getContrastColor(color);
+                  e.currentTarget.style.borderColor = getContrastColor(color);
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#ffffff';
+                  e.currentTarget.style.color = '#4b5563';
+                  e.currentTarget.style.borderColor = '#e5e7eb';
+                }}
+                onClick={() => onSearchChange(color)}
                 role="listitem"
+                aria-label={`Buscar colores ${color}`}
               >
                 {color}
-              </span>
+              </button>
             ))}
           </div>
         </div>
@@ -42,7 +78,6 @@ export const ColorGrid = ({ colors, onColorClick, searchTerm }: ColorGridProps) 
   return (
     <main className="mb-8">
       <h2 className="sr-only">Cuadrícula de colores</h2>
-      {/* Animated grid container */}
       <div 
         className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 2xl:grid-cols-10 gap-3 md:gap-4"
         role="grid"

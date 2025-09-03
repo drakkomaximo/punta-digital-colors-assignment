@@ -32,7 +32,7 @@ export const ScrollToTop = ({ modalOpen = false }: ScrollToTopProps) => {
   return (
     <button
       onClick={scrollToTop}
-      className={`fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-r from-palette-cyan to-palette-hot-pink text-white rounded-full shadow-2xl hover:shadow-[0_20px_40px_rgba(255,105,180,0.4)] transform transition-all duration-300 flex items-center justify-center group ${
+      className={`fixed bottom-8 right-8 z-50 w-12 h-12 bg-gradient-to-r from-cyan-500 to-pink-500 text-white rounded-full shadow-2xl hover:shadow-[0_20px_40px_rgba(255,105,180,0.4)] transform transition-all duration-300 flex items-center justify-center group ${
         isVisible && !modalOpen ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0'
       }`}
       style={{ 
